@@ -31,6 +31,9 @@ on boot
     write /dev/cpuset/system-background/cpus 1-${ro.maxcpu}
     write /dev/cpuset/top-app/cpus 0-${ro.maxcpu}
 
+    # Allow system to change brightness
+    chown system system /sys/class/backlight/pic-backlight/brightness
+
 # fake some battery state
     setprop status.battery.state Slow
     setprop status.battery.level 5
