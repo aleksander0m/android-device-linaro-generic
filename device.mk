@@ -42,6 +42,10 @@ $(call inherit-product-if-true, $(CONFIG_TABLET), $(LOCAL_PATH)/device_tablet.mk
 PRODUCT_NAME := $(TARGET_PRODUCT)
 PRODUCT_BRAND := Android
 
+
+PRODUCT_PACKAGES += \
+    perf
+
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 PRODUCT_COPY_FILES += \
