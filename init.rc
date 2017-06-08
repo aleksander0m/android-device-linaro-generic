@@ -7,6 +7,7 @@ on init
     mkdir /storage/sdcard 0555 root root
 
     export EXTERNAL_STORAGE /storage/sdcard
+    export GALLIUM_HUD cpu,cpu0+cpu1+cpu2+cpu3;pixels-rendered,fps,primitives-generated
 
     # Support legacy paths
     #symlink /storage/sdcard /sdcard
