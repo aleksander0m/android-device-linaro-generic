@@ -35,6 +35,10 @@ on boot
     # Allow system to change brightness
     chown system system /sys/class/backlight/pic-backlight/brightness
 
+    # USB controller
+    # Note: probably better set in init.{ro.hardware}.usb.rc
+    setprop sys.usb.controller "ci_hdrc.0"
+
 # fake some battery state
     setprop status.battery.state Slow
     setprop status.battery.level 5
