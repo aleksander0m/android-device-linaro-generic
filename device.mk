@@ -44,7 +44,10 @@ PRODUCT_BRAND := Android
 
 
 PRODUCT_PACKAGES += \
-    perf
+    perf \
+    tcpdump \
+    ethtool \
+    brctl
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
