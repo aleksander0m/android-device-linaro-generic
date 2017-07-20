@@ -1,0 +1,4 @@
+/system/bin/init-net-rdu2\.sh    u:object_r:init_net_rdu2_exec:s0
+/system/bin/ip                   u:object_r:init_net_rdu2_exec:s0
+/system/bin/brctl                u:object_r:init_net_rdu2_exec:s0
+/system/bin/sleep                u:object_r:init_net_rdu2_exec:s0

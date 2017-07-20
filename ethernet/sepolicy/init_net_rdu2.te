@@ -1,0 +1,8 @@
+type init_net_rdu2, domain, domain_deprecated;
+type init_net_rdu2_exec, exec_type, file_type;
+
+init_daemon_domain(init_net_rdu2)
+
+allow init_net_rdu2 shell_exec:file rx_file_perms;
+allow init_net_rdu2 init_net_rdu2_exec:file rx_file_perms;
+
