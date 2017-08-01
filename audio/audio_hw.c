@@ -63,17 +63,17 @@
 #endif
 
 /* These values are defined in _frames_ (not bytes) to match the ALSA API */
-#define OUT_PERIOD_SIZE_DEFAULT 256
+#define OUT_PERIOD_SIZE_DEFAULT 1024
 #define OUT_PERIOD_COUNT_DEFAULT 4
 #define OUT_CHANNEL_MASK_DEFAULT AUDIO_CHANNEL_OUT_STEREO
 #define OUT_CHANNEL_COUNT_DEFAULT 2
-#define OUT_RATE_DEFAULT 44100
+#define OUT_RATE_DEFAULT 192000
 
-#define IN_PERIOD_SIZE_DEFAULT 256
+#define IN_PERIOD_SIZE_DEFAULT 1024
 #define IN_PERIOD_COUNT_DEFAULT 4
 #define IN_CHANNEL_MASK_DEFAULT AUDIO_CHANNEL_IN_MONO
 #define IN_CHANNEL_COUNT_DEFAULT 1
-#define IN_RATE_DEFAULT 44100
+#define IN_RATE_DEFAULT 8000
 
 /* AudioFlinger does not re-read the buffer size after
  * issuing a routing or input_source change so the
@@ -703,7 +703,7 @@ static int start_output_pcm(struct stream_out_pcm *out)
         .rate = out_pcm_cfg_rate(out),
         .period_size = out_pcm_cfg_period_size(out),
         .period_count = out_pcm_cfg_period_count(out),
-        .format = PCM_FORMAT_S16_LE,
+        .format = PCM_FORMAT_S24_LE,
         .start_threshold = 0,
         .stop_threshold = 0,
         .silence_threshold = 0

@@ -24,26 +24,38 @@
       </attachedDevices>
       <defaultOutputDevice>Default Out</defaultOutputDevice>
       <mixPorts>
-        <mixPort name="stub output" role="source" flags="AUDIO_OUTPUT_FLAG_PRIMARY">
-          <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                   samplingRates="44100"
+        <mixPort name="primary output" role="source" flags="AUDIO_OUTPUT_FLAG_PRIMARY">
+          <!--
+              The audio system in the RDU2 only allows PCM S24_LE format.
+          -->
+          <profile name="" format="AUDIO_FORMAT_PCM_8_24_BIT"
+                   samplingRates="8000,192000"
                    channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
         </mixPort>
         <mixPort name="stub input" role="sink">
-          <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+          <profile name="" format="AUDIO_FORMAT_PCM_8_24_BIT"
                    samplingRates="8000"
                    channelMasks="AUDIO_CHANNEL_IN_STEREO"/>
         </mixPort>
       </mixPorts>
       <devicePorts>
-        <devicePort tagName="Default Out" type="AUDIO_DEVICE_OUT_STUB" role="sink">
+        <!--
+            There is no speaker in the RDU2, but we just assume there is, so
+            that the headphones output is taken as the always-available primary
+            output (and so that we don't need any kind of headphone jack
+            detection).
+        -->
+        <devicePort tagName="Default Out" type="AUDIO_DEVICE_OUT_SPEAKER" role="sink">
         </devicePort>
+        <!--
+            There is no input device in the RDU2, so we just use a stub device.
+        -->
         <devicePort tagName="Default In" type="AUDIO_DEVICE_IN_STUB" role="source">
         </devicePort>
       </devicePorts>
       <routes>
-        <route type="mix" sink="Default Out" sources="stub output"/>
-        <route type="mix" sink="stub input"  sources="Default In"/>
+        <route type="mix" sink="Default Out" sources="primary output"/>
+        <route type="mix" sink="stub input" sources="Default In"/>
       </routes>
     </module>
   </modules>
