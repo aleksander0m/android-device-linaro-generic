@@ -225,5 +225,6 @@ config BOARD_HAVE_BLUETOOTH_LINUX
 source "wifi/Kconfig"
 source "ethernet/Kconfig"
 source "sensor/Kconfig"
+source "audio/Kconfig"
 
 endmenu

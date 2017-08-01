@@ -91,4 +91,5 @@ subdirs-true := lights graphics
 subdirs-$(CONFIG_WIFI) += wifi
 subdirs-$(CONFIG_ETHERNET) += ethernet
 subdirs-$(CONFIG_SENSOR) += sensor
+subdirs-$(CONFIG_AUDIO) += audio
 $(call inherit-product-dirs, $(subdirs-true))

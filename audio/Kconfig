@@ -1,0 +1,3 @@
+config AUDIO
+	bool "Audio support"
+	default n
