@@ -8,6 +8,7 @@ on init
 
     export EXTERNAL_STORAGE /storage/sdcard
     export GALLIUM_HUD cpu,cpu0+cpu1+cpu2+cpu3;pixels-rendered,fps,primitives-generated
+    export GALLIUM_HUD_TOGGLE_SIGNAL -10
 
     # Support legacy paths
     #symlink /storage/sdcard /sdcard
